@@ -17,9 +17,10 @@ def apicall(number):
           "msisdn": number
       }
       payload =json.dumps(details)
+      apikey=os.environ.get("apikey")
       header={
           "Content-Type":"application/json",
-          "Apikey": "xxxxxxxxx"
+          "Apikey": apikey
       }
       response=requests.post(url,data=payload,headers=header)
       if response.status_code ==200:
