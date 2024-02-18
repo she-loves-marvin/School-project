@@ -58,7 +58,7 @@ def apicall(number,amount):
 @app.route(['/'],methods=['GET'])
 def renderloginpage():
     return render_template('login.html')
-@app.route(['/'],methods=['GET'])
+@app.route(['/'],methods=['POST'])
 def login():
     try:
         data=request.get_json()
