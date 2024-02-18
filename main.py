@@ -88,7 +88,7 @@ def login():
         print(f"An error occurred: {e}")
 
 #signup page for new users
-app.route('/signup',methods=-['GET','POST'])
+app.route('/signup',methods=['GET','POST'])
 def signup ():
     try:
         data=request.get_json()
