@@ -87,7 +87,6 @@ def login():
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
 #signup page for new users
 app.route(['/signup'],methods=-['GET','POST'])
 def signup ():
