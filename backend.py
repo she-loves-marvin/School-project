@@ -58,8 +58,11 @@ def apicall(number,amount):
 #root page directed to the user to authenticate themselves
 @app.route(['/'],methods=['GET'])
 def renderloginpage():
-    print("TUKO NDAAANIIII")
-    return render_template('home.html')
+        try:
+            print("TUKO NDAAANIIII")
+            return render_template('home.html')
+        except Exception as e:
+            print(f"an error occurred :{e}")
 @app.route(['/'],methods=['POST'])
 def login():
     try:
