@@ -58,6 +58,7 @@ def apicall(number,amount):
 #root page directed to the user to authenticate themselves
 @app.route(['/'],methods=['GET'])
 def renderloginpage():
+    print("TUKO NDAAANIIII")
     return render_template('home.html')
 @app.route(['/'],methods=['POST'])
 def login():
