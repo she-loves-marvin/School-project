@@ -88,7 +88,7 @@ def login():
         print(f"An error occurred: {e}")
 
 #signup page for new users
-app.route(['/signup'],methods=-['GET','POST'])
+app.route('/signup',methods=-['GET','POST'])
 def signup ():
     try:
         data=request.get_json()
@@ -114,7 +114,7 @@ def signup ():
 
 
 #homepage logic behind budgeting
-@app.route(['/homepage'],methods=['GET','POST'])
+@app.route('/homepage',methods=['GET','POST'])
 def homepage ():
     try:
         data=request.get_json
