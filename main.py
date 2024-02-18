@@ -59,8 +59,7 @@ def apicall(number,amount):
 @app.route('/',methods=['GET'])
 def renderloginpage():
         try:
-            print("TUKO NDAAANIIII")
-            return render_template('home.html')
+            return render_template('login.html')
         except Exception as e:
             print(f"an error occurred :{e}")
 @app.route('/',methods=['POST'])
@@ -69,12 +68,12 @@ def login():
         data=request.get_json()
         email=data.get('email')
         password=data.get('password')
-        salt=generate_salt()
-        passkey=hash_password(password,salt)
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,email)
         feedback =cursor.fetchone()
         hashpass=feedback[1]
+        salt=feedback[2]
+        passkey=hash_password(password,salt)
         if feedback is not None:
             if hashpass==passkey:
                return render_template('home.html')
@@ -134,8 +133,8 @@ def homepage ():
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):
-    token = "YOUR-API-TOKEN"
-    publishable_key = "YOUR-PUBLISHABLE-KEY"
+    token = "intasend_token"
+    publishable_key = "intasend_key"
     service = APIService(token=token, publishable_key=publishable_key, test=False)
     transactions = [{'name': 'Customer 1', 'account': phone, 'amount': amount}]
     response = service.transfer.mpesa(currency='KES', transactions=transactions)
