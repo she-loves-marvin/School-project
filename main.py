@@ -56,7 +56,7 @@ def apicall(number,amount):
       app.logger.error(f'An error occurred: {e}')
 
 #root page directed to the user to authenticate themselves
-#@app.route(['/'],methods=['GET'])
+@app.route(['/'],methods=['GET'])
 def renderloginpage():
         try:
             print("TUKO NDAAANIIII")
