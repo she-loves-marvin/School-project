@@ -57,7 +57,7 @@ def apicall(number,amount):
 #root page directed to the user to authenticate themselves
 @app.route(['/'],methods=['GET'])
 def renderloginpage():
-    return render_template('login.html')
+    return render_template('home.html')
 @app.route(['/'],methods=['POST'])
 def login():
     try:
