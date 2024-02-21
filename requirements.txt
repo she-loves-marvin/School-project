@@ -4,4 +4,4 @@ psycopg2==2.9.9
 psycopg2_binary==2.9.9
 Requests==2.31.0
 schedule==1.2.1
-gunicorn
+gunicorn==20.1.0
