@@ -89,7 +89,7 @@ def login():
 #signup page for new users
 app.route('/signup',methods=['GET'])
 def login():
-    return render_template('login.html')
+    return render_template('signup.html')
 app.route('/signup',methods=['POST'])
 def signup ():
     try:
