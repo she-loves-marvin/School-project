@@ -20,6 +20,7 @@ app=Flask(__name__)
 connection_string = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(connection_string)
 cursor= conn.cursor()
+print("connection secured...")
 
 
 
@@ -55,18 +56,24 @@ def apicall(number,amount):
       app.logger.error(f'An error occurred: {e}')
 
 #root page directed to the user to authenticate themselves
-@app.route(['/'],methods=['GET','POST'])
+@app.route('/',methods=['GET'])
+def renderloginpage():
+        try:
+            return render_template('login.html')
+        except Exception as e:
+            print(f"an error occurred :{e}")
+@app.route('/',methods=['POST'])
 def login():
     try:
         data=request.get_json()
         email=data.get('email')
         password=data.get('password')
-        salt=generate_salt()
-        passkey=hash_password(password,salt)
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,email)
         feedback =cursor.fetchone()
         hashpass=feedback[1]
+        salt=feedback[2]
+        passkey=hash_password(password,salt)
         if feedback is not None:
             if hashpass==passkey:
                return render_template('home.html')
@@ -79,9 +86,11 @@ def login():
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
 #signup page for new users
-app.route(['/signup'],methods=-['GET','POST'])
+app.route('/signup',methods=['GET'])
+def login():
+    return render_template('signup.html')
+app.route('/signup',methods=['POST'])
 def signup ():
     try:
         data=request.get_json()
@@ -107,7 +116,7 @@ def signup ():
 
 
 #homepage logic behind budgeting
-@app.route(['/homepage'],methods=['GET','POST'])
+@app.route('/homepage',methods=['GET','POST'])
 def homepage ():
     try:
         data=request.get_json
@@ -127,8 +136,8 @@ def homepage ():
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):
-    token = "YOUR-API-TOKEN"
-    publishable_key = "YOUR-PUBLISHABLE-KEY"
+    token = "intasend_token"
+    publishable_key = "intasend_key"
     service = APIService(token=token, publishable_key=publishable_key, test=False)
     transactions = [{'name': 'Customer 1', 'account': phone, 'amount': amount}]
     response = service.transfer.mpesa(currency='KES', transactions=transactions)
