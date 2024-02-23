@@ -1,0 +1,63 @@
+
+body, h1, h2, h3, p, ul, ol, li, figure, figcaption, blockquote, dl, dd, dt {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+header {
+    text-align: left;
+    padding: 10px 0;
+}
+
+header img {
+    margin-left: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="tel"] {
+    padding: 10px;
+    width: 200px;
+    margin-top: 5px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td {
+    padding: 10px;
+    font-size: 14px;
+}
