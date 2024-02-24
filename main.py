@@ -116,7 +116,10 @@ def signup ():
 
 
 #homepage logic behind budgeting
-@app.route('/homepage',methods=['GET','POST'])
+@app.route('/homepage',methods=['GET'])
+def home ():
+    return render_template('home.html')
+@app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
         data=request.get_json
