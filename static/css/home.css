@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a basic background color and font family */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+/* Style header */
+header {
+    text-align: left;
+    padding: 10px 0;
+}
+
+/* Style logo */
+header img {
+    margin-left: 20px;
+}
+
+/* Style input box for telephone numbers */
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="tel"] {
+    padding: 10px;
+    width: 200px;
+    margin-top: 5px;
+}
+
+/* Style balance left display */
+h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Style table */
+table {
+    width: 50%; /* Adjust the width as needed */
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Added margin bottom */
+    margin-left: auto; /* Center table horizontally */
+    margin-right: auto;
+}
+
+/* Style table headings */
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style table rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style table data cells */
+td {
+    padding: 10px;
+    font-size: 14px; /* Adjust the font size as needed */
+}

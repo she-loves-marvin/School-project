@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/home.css">
+  <title>Home Page</title>
 </head>
 <body>
-    <p>Hello world</p>
+  <header>
+    <h2>Logo</h2>
+  </header>
+
+  <div>
+    <p>Enter your phone number</p>
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" required>
+  </div>
+
+  <div>
+    <h2 id="balance">Balance Left: 500ksh</h2>
+  </div>
+
+  <table id="utilityTable">
+    <thead>
+      <tr>
+        <th>Utilities</th>
+        <th>Time</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Electricity</td>
+        <td id="electricityTime">time</td>
+        <td>100ksh</td>
+      </tr>
+      <tr>
+        <td>Internet</td>
+        <td id="internetTime">time</td>
+        <td>100ksh</td>
+      </tr>
+      <tr>
+        <td>Water</td>
+        <td id="waterTime">time</td>
+        <td>100ksh</td>
+      </tr>
+      <tr>
+        <td>Gas</td>
+        <td id="gasTime">time</td>
+        <td>100ksh</td>
+      </tr>
+      <tr>
+        <td>Rent</td>
+        <td id="rentTime">time</td>
+        <td>100ksh</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="/static/js/home.js"></script>
 </body>
 </html>
