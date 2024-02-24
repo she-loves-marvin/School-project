@@ -44,6 +44,35 @@
   }
 
 </style>
+<script>
+  const loginForm = {
+    "form": {
+      "id": "sign-in-form",
+      "method": "POST",
+      "action": "/login",
+      "fields": [
+        {
+          "type": "text",
+          "id": "email",
+          "name": "email",
+          "label": "Email",
+          "required": true
+        },
+        {
+          "type": "password",
+          "id": "password",
+          "name": "password",
+          "label": "Password",
+          "required": true
+        }
+      ],
+      "submit": {
+        "type": "submit",
+        "value": "Sign In"
+      }
+    }
+  };
+</script>
 <body>
 <div class="container">
   <h2>Sign In</h2>
