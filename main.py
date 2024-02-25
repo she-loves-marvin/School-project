@@ -116,6 +116,7 @@ def signup ():
 
 
 #homepage logic behind budgeting
+
 @app.route('/homepage',methods=['GET'])
 def home ():
     return render_template('home.html')
