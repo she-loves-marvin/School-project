@@ -1,7 +1,13 @@
-const form  = document.querySelector('form')
-form.addEventListener('submit',(e)=> { e.preventDefault();
-  
-  const formData = new FormData(form)
-  for (item of formData)
-  console.log(item[0],item[1]);
-})
+let FormData =[];
+const Addformdata = (ev)=>{
+  ev.preventDefault();
+  let FormData= {
+     PhoneNumber:document.getElementById("PhoneNumber").Value,
+     email:document.getElementById("email").value,
+     Password:document.getElementById("Password").value,
+     ConfirmPassword :document.getElementById("ConfirmPassword").value
+}
+FormData.push(FormData);
+console.log(FormData);
+document.querySelector('form').reset()
+}
