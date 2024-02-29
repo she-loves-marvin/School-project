@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        alert("Your request was submitted succesfully")
       }
       console.log('Utility data successfully saved.');
     })

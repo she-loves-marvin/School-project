@@ -128,15 +128,12 @@ def homepage ():
         print("json stripped...")
         print("order up")
         phone=data.pop('phonenumber',None)
-        print("number here")
+        print(f"number here {phone}")
         price=data.pop('amount',None)
-        print("price here")
+        print(f"price here{price}")
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
-
-        timeslots=data.get('timeslot',{})
-        print("timeslot churning")
-        for timeinput,amount in timeslots.items():
+        for timeinput,amount in data.items():
             schedule.every().day.at(timeinput).do(b2ccall,amount,phone)
         while True:
             schedule.run_pending()
