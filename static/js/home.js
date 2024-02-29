@@ -30,18 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
           utilityData[utilityTime] = utilityAmount;
         }
       }
-
-  });
-
-  console.log('Phone Number:', phoneNumberInput);
-  console.log('Amount:', amount);
-  console.log('Utility Data:', utilityData);
-}
-
-
+    });
   
     // JSON file
-    fetch('', {
+    fetch('utilityData.json', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -57,4 +49,4 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('There was a problem saving utility data:', error.message);
     });
-
+  } 
