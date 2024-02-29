@@ -119,6 +119,7 @@ def signup ():
 
 #homepage logic behind budgeting
 def schedule_tasks(data:dict, phone):
+    print(f"data:{data}")
     for timeinput, amount in data.items():
         schedule.every().day.at(timeinput).do(b2ccall, amount, phone)
     while True:
