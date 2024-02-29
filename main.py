@@ -147,10 +147,15 @@ def homepage ():
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):
+    print("api call received ")
     token = "intasend_token"
+    print("private token")
     publishable_key = "intasend_key"
+    print("public token")
     service = APIService(token=token, publishable_key=publishable_key, test=False)
+    print("service")
     transactions = [{'name': 'Customer 1', 'account': phone, 'amount': amount}]
+    print("transactions")
     response = service.transfer.mpesa(currency='KES', transactions=transactions)
     print(response)
     approved_response = service.transfer.approve(response)
