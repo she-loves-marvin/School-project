@@ -124,7 +124,7 @@ def home ():
 def homepage ():
     try:
         print("data here")
-        data=request.get_json
+        data=request.get_json()
         print("json stripped...")
         dictdata=json.loads(data)
         print("order up")
