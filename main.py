@@ -141,7 +141,7 @@ def homepage ():
         print(f"price here{price}")
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
-        threadschedule=Process(target=schedule_tasks , args=(phone,data),daemon=False)
+        threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
         threadschedule.start()
         return jsonify({"message":"success"})
     except Exception as e:
