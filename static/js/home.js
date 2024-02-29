@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   
     // JSON file
-    fetch('utilityData.json', {
+    fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/homepage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
