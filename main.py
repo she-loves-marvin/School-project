@@ -133,10 +133,10 @@ def homepage ():
             schedule.every().day.at(timeinput).do(b2ccall,amount,phone)
         while True:
             schedule.run_pending()
-            time.sleep(1)    
+            time.sleep(1)  
     except Exception as e:
         print (f"An exception occurred: {e}")
-
+        return jsonify({"message":"success"})
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):
