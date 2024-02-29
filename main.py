@@ -1,4 +1,5 @@
 from flask import Flask,request,jsonify,render_template
+from multiprocessing import process
 from intasend import APIService
 import requests
 import psycopg2
@@ -8,6 +9,7 @@ import os
 import time
 import hashlib
 import secrets
+
 
 
 
@@ -116,7 +118,12 @@ def signup ():
 
 
 #homepage logic behind budgeting
-
+def schedule_tasks(data, phone):
+    for timeinput, amount in data.items():
+        schedule.every().day.at(timeinput).do(b2ccall, amount, phone)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
 @app.route('/homepage',methods=['GET'])
 def home ():
     return render_template('home.html')
@@ -133,11 +140,9 @@ def homepage ():
         print(f"price here{price}")
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
-        for timeinput,amount in data.items():
-            schedule.every().day.at(timeinput).do(b2ccall,amount,phone)
-        while True:
-            schedule.run_pending()
-            time.sleep(1)  
+        threadschedule=process(target=schedule_tasks , args=(phone,data),daemon=False)
+        threadschedule.start()
+        return jsonify({"message":"success"})
     except Exception as e:
         print (f"An exception occurred: {e}")
         return jsonify({"message":"success"})
