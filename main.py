@@ -1,5 +1,5 @@
 from flask import Flask,request,jsonify,render_template
-from multiprocessing import process
+from multiprocessing import Process
 from intasend import APIService
 import requests
 import psycopg2
@@ -140,7 +140,7 @@ def homepage ():
         print(f"price here{price}")
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
-        threadschedule=process(target=schedule_tasks , args=(phone,data),daemon=False)
+        threadschedule=Process(target=schedule_tasks , args=(phone,data),daemon=False)
         threadschedule.start()
         return jsonify({"message":"success"})
     except Exception as e:
