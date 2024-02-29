@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const submitButton = document.getElementById('input[type="button"]');
+    const submitButton = document.getElementById('submitbutton');
     submitButton.addEventListener('click', processData);
   });
   
