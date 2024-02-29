@@ -123,12 +123,19 @@ def home ():
 @app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
+        print("data here")
         data=request.get_json
+        print("json stripped...")
         dictdata=json.loads(data)
+        print("order up")
         phone=dictdata.pop('phonenumber',None)
+        print("number here")
         price=dictdata.pop('amount',None)
+        print("price here")
         apicall(phone,price)
+        print("push initiated")
         timeslots=dictdata.get('timeslot',{})
+        print("timeslot churning")
         for timeinput,amount in timeslots.items():
             schedule.every().day.at(timeinput).do(b2ccall,amount,phone)
         while True:
