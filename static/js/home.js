@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
   
     const utilityRows = document.querySelectorAll('#budgetTable tr');
     const utilityData = {};
+    utilityData["phonenumber"]=phoneNumberInput;
+    utilityData["amount"]=amountInput
   
     utilityRows.forEach(function (row, index) {
       if (index !== 0) {
@@ -38,7 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(utilityData),
+
+      body:JSON.stringify(utilityData),
     })
     .then(response => {
       if (!response.ok) {
