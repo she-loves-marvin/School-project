@@ -4,12 +4,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 function processData() {
-  const email= document.getElementById("email").value;
-  const password=document.getElementById("password").value;
+  const email= document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value.trim();
+  const confirmpassword=document.getElementById("confirmpassword").value.trim();
   
-  if (validateEmail(email) && validatePassword(password)) {
-    alert("Logged in successfully");}
-  else{
-    showError();
+  if(password!==confirmpassword){
+ alert("Passwords do not match")
+
   }
+  const data= {
+    "Email": email,
+    "Password": password,
+    "Confirm Password": confirmpassword
+  };
+  fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/signup',{
+    method:'POST',
+    headers:{
+      'content-Type':'application/json'
+    },
+    
+     body:JSON.stringify(data)
+  })
+  .then(response => {
+  if (!response.ok) {
+    alert("Your request was submitted succesfully")
+  }
+  console.log('Utility data successfully saved.');
+})
+.catch(error => {
+  console.error('There was a problem saving utility data:', error.message);
+});
+  
 }
+

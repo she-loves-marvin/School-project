@@ -1,4 +1,5 @@
 from flask import Flask,request,jsonify,render_template
+from multiprocessing import Process
 from intasend import APIService
 import requests
 import psycopg2
@@ -8,6 +9,7 @@ import os
 import time
 import hashlib
 import secrets
+
 
 
 
@@ -116,30 +118,47 @@ def signup ():
 
 
 #homepage logic behind budgeting
-@app.route('/homepage',methods=['GET','POST'])
+def schedule_tasks(data:dict, phone):
+    print(f"data:{data}")
+    for timeinput, amount in data.items():
+        schedule.every().day.at(timeinput).do(b2ccall, amount, phone)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+@app.route('/homepage',methods=['GET'])
+def home ():
+    return render_template('home.html')
+@app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
-        data=request.get_json
-        dictdata=json.loads(data)
-        phone=dictdata.pop('phonenumber',None)
-        price=dictdata.pop('amount',None)
+        print("data here")
+        data=request.get_json()
+        print("json stripped...")
+        print("order up")
+        phone=data.pop('phonenumber',None)
+        print(f"number here {phone}")
+        price=data.pop('amount',None)
+        print(f"price here{price}")
         apicall(phone,price)
-        timeslots=dictdata.get('timeslot',{})
-        for timeinput,amount in timeslots.items():
-            schedule.every().day.at(timeinput).do(b2ccall,amount,phone)
-        while True:
-            schedule.run_pending()
-            time.sleep(1)    
+        print(f"push initiated data remaining {data}")
+        threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
+        threadschedule.start()
+        return jsonify({"message":"success"})
     except Exception as e:
         print (f"An exception occurred: {e}")
-
+        return jsonify({"message":"success"})
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):
+    print("api call received ")
     token = "intasend_token"
+    print("private token")
     publishable_key = "intasend_key"
+    print("public token")
     service = APIService(token=token, publishable_key=publishable_key, test=False)
+    print("service")
     transactions = [{'name': 'Customer 1', 'account': phone, 'amount': amount}]
+    print("transactions")
     response = service.transfer.mpesa(currency='KES', transactions=transactions)
     print(response)
     approved_response = service.transfer.approve(response)
