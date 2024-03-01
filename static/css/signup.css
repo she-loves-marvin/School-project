@@ -1,26 +1,42 @@
-body
-{
-    background-color: rgb(108, 108, 156);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: normal;
-}
-.container {
-  max-width: 400px;
+form {
+  font-weight: lighter;
+  font-style: normal;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 50%;
   margin: 0 auto;
   padding: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}.form-group {
-    margin-bottom: 15px;
-  }
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  input[type="text"],
-  input[type="password"] {
-    width: 20%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+h2 {
+  color:blue;
+  text-align:left;
+}
+nav{
+  float:right;
+}
