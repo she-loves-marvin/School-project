@@ -1,13 +1,14 @@
-let FormData =[];
-const Addformdata = (ev)=>{
-  ev.preventDefault();
-  let FormData= {
-     PhoneNumber:document.getElementById("PhoneNumber").Value,
-     email:document.getElementById("email").value,
-     Password:document.getElementById("Password").value,
-     ConfirmPassword :document.getElementById("ConfirmPassword").value
-}
+const form = document.querySelector('form')
+
+form.addEventListener('submit',function() {
+  const formData= new FormData();
+
+  const email = document.getElementById("email");
+
+  const Password = document.getElementById("Password");
+
+
 FormData.push(FormData);
-console.log(FormData);
+
 document.querySelector('form').reset()
-}
+})

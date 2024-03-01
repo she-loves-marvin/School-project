@@ -1,0 +1,26 @@
+body
+{
+    background-color: rgb(108, 108, 156);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}.form-group {
+    margin-bottom: 15px;
+  }
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
