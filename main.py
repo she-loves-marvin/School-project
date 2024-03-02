@@ -31,8 +31,11 @@ def generate_salt():
 
 
 def hash_password(password,salt):
+    print("Hash generator")
     salted_password = password + salt
+    print("concatenation okay")
     hashedpassword=hashlib.sha256(salted_password.encode()).hexdigest()
+    print("hash complete")
     return hashedpassword
 
 #STK push for the amount to be sent from clients mpesa number to our accounts
