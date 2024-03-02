@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     });
-  
+    if (amountInput === "" || phoneNumberInput === "" || utilityData === "") {
+      alert("Please fill in all fields.");
+      return;
+  }
     // JSON file
     fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/homepage', {
       method: 'POST',

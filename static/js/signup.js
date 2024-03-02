@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 function processData() {
-  const email= document.getElementById("email").value.trim();
-  const password=document.getElementById("password").value.trim();
-  const confirmpassword=document.getElementById("confirmpassword").value.trim();
-  
+  const email= document.getElementById("Email address").value.trim();
+  const password=document.getElementById("Password").value.trim();
+  const confirmpassword=document.getElementById("confirm password").value.trim();
+  if (email === "" || password === "" || confirmPassword === "") {
+    alert("Please fill in all fields.");
+    return;
+}
   if(password!==confirmpassword){
       alert("Passwords do not match")
       return;
@@ -22,7 +25,6 @@ function processData() {
       headers:{
         'content-Type':'application/json'
       },
-      
       body:JSON.stringify(data)
     })
     .then(response =>response.json() )
@@ -30,9 +32,9 @@ function processData() {
       const value = data.Data;
       alert(value);
     })
-  .catch(error => {
+    .catch(error => {
     console.error('There was a problem saving utility data:', error.message);
-  });
-}
+    });
+   }
 }
 
