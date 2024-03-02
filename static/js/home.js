@@ -43,12 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       body:JSON.stringify(utilityData),
     })
-    .then(response => {
-      if (!response.ok) {
-        alert("Your request was submitted succesfully")
-      }
-      console.log('Utility data successfully saved.');
-    })
+    .then(response =>response.json() )
+  .then(data => {
+    const jsonDataString = JSON.stringify(data);
+    alert(jsonDataString);
+  })
     .catch(error => {
       console.error('There was a problem saving utility data:', error.message);
     });

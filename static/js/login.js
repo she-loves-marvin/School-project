@@ -19,14 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 
     body:JSON.stringify(data)
     })
-    .then(response => {
-    if (!response.ok) {
-      alert("Trouble loggin in.Kindly check your email and password and try again")
-    }
-    else{
-      alert("Your request was submitted succesfully")
-    }
-    console.log('Utility data successfully saved.');
+    .then(response =>response.json() )
+  .then(data => {
+    const jsonDataString = JSON.stringify(data);
+    alert(jsonDataString);
   })
   .catch(error => {
     console.error('There was a problem saving utility data:', error.message);
