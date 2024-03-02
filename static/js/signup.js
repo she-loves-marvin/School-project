@@ -9,29 +9,30 @@ function processData() {
   const confirmpassword=document.getElementById("confirmpassword").value.trim();
   
   if(password!==confirmpassword){
- alert("Passwords do not match")
-
+      alert("Passwords do not match")
+      return;
   }
-  const data= {
-    "Email": email,
-    "Password": password,
-  };
-  fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/signup',{
-    method:'POST',
-    headers:{
-      'content-Type':'application/json'
-    },
-    
-     body:JSON.stringify(data)
-  })
-  .then(response =>response.json() )
-  .then(data => {
-    const value = data.Data;
-    alert(value);
-  })
-.catch(error => {
-  console.error('There was a problem saving utility data:', error.message);
-});
-  
+  else{
+    const data= {
+      "Email": email,
+      "Password": password,
+    };
+    fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/signup',{
+      method:'POST',
+      headers:{
+        'content-Type':'application/json'
+      },
+      
+      body:JSON.stringify(data)
+    })
+    .then(response =>response.json() )
+    .then(data => {
+      const value = data.Data;
+      alert(value);
+    })
+  .catch(error => {
+    console.error('There was a problem saving utility data:', error.message);
+  });
+}
 }
 
