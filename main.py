@@ -171,10 +171,10 @@ def homepage ():
         print(f"push initiated data remaining {data}")
         threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
         threadschedule.start()
-        return jsonify({"message":"success"})
+        return jsonify({"Data":"Your schedule has been set up succesfully"})
     except Exception as e:
         print (f"An exception occurred: {e}")
-        return jsonify({"message":"success"})
+        return jsonify({"Data":"An error occured"})
 
 #api call to send the money to the customer at the schedule
 def b2ccall(amount,phone):

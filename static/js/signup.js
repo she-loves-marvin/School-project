@@ -26,7 +26,7 @@ function processData() {
   })
   .then(response =>response.json() )
   .then(data => {
-    const value = data.value;
+    const value = data.Data;
     alert(value);
   })
 .catch(error => {
