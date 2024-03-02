@@ -76,6 +76,8 @@ def login():
         print("password check")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
+        schedule.every().day.at("12:09").do(hello)
+        schedule.run_pending()
         print("query initiated")
         feedback =cursor.fetchone()
         print("feedabck check")
@@ -100,7 +102,8 @@ def login():
             return response
     except Exception as e:
         print(f"An error occurred: {e}")
-
+def hello():
+    print("hello")
 #signup page for new users
 app.route('/login',methods=['GET'])
 def login():
