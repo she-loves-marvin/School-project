@@ -59,7 +59,6 @@ def apicall(number,amount):
           print(response.json())
   except Exception as e:
       app.logger.error(f'An error occurred: {e}')
-
 #root page directed to the user to authenticate themselves
 @app.route('/',methods=['GET'])
 def renderloginpage():
@@ -79,15 +78,9 @@ def login():
         print("password check")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
-        schedule.every().day.at("18:25").do(hello)
-        schedule.clear()
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
-
         print("query initiated")
         feedback =cursor.fetchone()
-        print("feedabck check")
+        print("feedback check")
         print("")
         if feedback is not None:
             hashpass=feedback[1]
