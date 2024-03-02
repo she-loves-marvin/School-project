@@ -76,8 +76,12 @@ def login():
         print("password check")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
-        schedule.every().day.at("12:09").do(hello)
+        schedule.every().day.at("12:12").do(hello)
         schedule.run_pending()
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
         print("query initiated")
         feedback =cursor.fetchone()
         print("feedabck check")
