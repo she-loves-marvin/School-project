@@ -134,7 +134,7 @@ def signup ():
         passkey=hash_password(password,salt)
         print("hashed password ready")
         confirmation="SELECT * FROM project WHERE email = %s LIMIT 1"
-        cursor.execute(confirmation,email)
+        cursor.execute(confirmation,(email,))
         print("query exceuted")
         result=cursor.fetchone()
         print("result here")
