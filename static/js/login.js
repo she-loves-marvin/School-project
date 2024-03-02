@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "Password": password,
 
   };
-  fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com',{
+  fetch('https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/',{
     method:'POST',
     headers:{
       'content-Type':'application/json'
