@@ -23,11 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 
     body:JSON.stringify(data)
     })
-    .then(response =>response.json() )
-  .then(data => {
-    const value = data.Data;
-    alert(value);
-  })
+    .then(response => {
+      if (response.headers.get('content-type').includes('application/json')) {
+        return response.json().then(data => {
+          const value = data.Data; 
+          alert(value);
+        });
+      } else {
+        return response.text().then(html => {
+          document.body.innerHTML = html;
+        });
+      }
+    })
   .catch(error => {
     console.error('There was a problem saving utility data:', error.message);
   });
