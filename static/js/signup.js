@@ -7,15 +7,14 @@ function processData() {
   const email= document.getElementById("Email address").value.trim();
   const password=document.getElementById("Password").value.trim();
   const confirmpassword=document.getElementById("confirm password").value.trim();
-  if (email === "" || password === "" || confirmPassword === "") {
+  if (email === "" || password === "" || confirmpassword === "") {
     alert("Please fill in all fields.");
     return;
-}
-  if(password!==confirmpassword){
+  }
+  else if(password!==confirmpassword){
       alert("Passwords do not match")
       return;
   }
-  else{
     const data= {
       "Email": email,
       "Password": password,
@@ -36,5 +35,4 @@ function processData() {
     console.error('There was a problem saving utility data:', error.message);
     });
    }
-}
 
