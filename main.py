@@ -72,9 +72,9 @@ def login():
         print("request received")
         data=request.get_json()
         print("data stripped")
-        email=data.get('email')
+        email=data.get('Email')
         print(f"email check {email}")
-        password=data.get('password')
+        password=data.get('Password')
         print(f"password check {password}")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
