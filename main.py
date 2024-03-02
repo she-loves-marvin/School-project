@@ -102,14 +102,14 @@ def login():
         print(f"An error occurred: {e}")
 
 #signup page for new users
-app.route('/signup',methods=['GET'])
+app.route('/login',methods=['GET'])
 def login():
     try:
         print("request received rendering sign up page")
         return render_template('signup.html')
     except Exception as e:
         print(f"A n error occured : {e}")
-app.route('/signup',methods=['POST'])
+app.route('/login',methods=['POST'])
 def signup ():
     try:
         print("data received")
