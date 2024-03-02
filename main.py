@@ -109,14 +109,14 @@ def login():
 def hello():
     print("hello")
 #signup page for new users
-@app.route('/login',methods=['GET'])
+@app.route('/signup',methods=['GET'])
 def login():
     try:
         print("request received rendering sign up page")
         return render_template('signup.html')
     except Exception as e:
         print(f"A n error occured : {e}")
-@app.route('/login',methods=['POST'])
+@app.route('/signup',methods=['POST'])
 def signup ():
     try:
         print("data received")
