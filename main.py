@@ -73,15 +73,14 @@ def login():
         data=request.get_json()
         print("data stripped")
         email=data.get('email')
-        print("email check")
+        print(f"email check {email}")
         password=data.get('password')
-        print("password check")
+        print(f"password check {password}")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
         print("query initiated")
         feedback =cursor.fetchone()
-        print("feedback check")
-        print("")
+        print(f"feedback check {feedback}")
         if feedback is not None:
             hashpass=feedback[1]
             print("hashpass check")
