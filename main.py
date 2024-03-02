@@ -85,14 +85,14 @@ def login():
         if feedback is not None:
             hashpass=feedback[1]
             hashstr=bytes(hashpass).decode('utf-8')
-            print(f"hashpass check {hashpass}")
+            print(f"hashpass check {hashstr}")
             salt=feedback[2]
             print(f"salt here {salt}")
             salt_str = bytes(salt).decode('utf-8')
             print(f"decoded to string {salt_str}")
             passkey=hash_password(password,salt_str)
             print(f"pass regenartion success {passkey}")
-            if hashpass==passkey:
+            if hashstr==passkey:
                print("log in succesfull")
                return render_template('home.html')
             else:
