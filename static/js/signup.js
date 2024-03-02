@@ -26,8 +26,8 @@ function processData() {
   })
   .then(response =>response.json() )
   .then(data => {
-    const jsonDataString = JSON.stringify(data);
-    alert(jsonDataString);
+    const value = data.value;
+    alert(value);
   })
 .catch(error => {
   console.error('There was a problem saving utility data:', error.message);
