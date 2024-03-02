@@ -15,6 +15,7 @@ function processData() {
       alert("Passwords do not match")
       return;
   }
+  else{
     const data= {
       "Email": email,
       "Password": password,
@@ -34,5 +35,6 @@ function processData() {
     .catch(error => {
     console.error('There was a problem saving utility data:', error.message);
     });
+   }
    }
 
