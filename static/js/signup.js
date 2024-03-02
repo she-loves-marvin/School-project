@@ -26,7 +26,7 @@ function processData() {
   })
   .then(response => {
   if (!response.ok) {
-    alert("Your request was submitted succesfully")
+    alert("email you entered already exists")
   }
   console.log('Utility data successfully saved.');
 })

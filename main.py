@@ -67,22 +67,35 @@ def renderloginpage():
 @app.route('/',methods=['POST'])
 def login():
     try:
+        print("request received")
         data=request.get_json()
+        print("data stripped")
         email=data.get('email')
+        print("email check")
         password=data.get('password')
+        print("password check")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,email)
+        print("queey initiated")
         feedback =cursor.fetchone()
-        hashpass=feedback[1]
-        salt=feedback[2]
-        passkey=hash_password(password,salt)
+        print("feedabck check")
+        print("")
         if feedback is not None:
+            hashpass=feedback[1]
+            print("hashpass check")
+            salt=feedback[2]
+            print("salt here")
+            passkey=hash_password(password,salt)
+            print("pass regenartion success")
             if hashpass==passkey:
+               print("log in succesfull")
                return render_template('home.html')
             else:
+                print("false password")
                 response= jsonify({"Data":"The password you entered is not correct.Please try again!!!"})
                 return response
         else:
+            print("account does not exist")
             response = jsonify({"Data":"The account under this email does not exist.PLease got to the sign up page and create a new account"})
             return response
     except Exception as e:
@@ -95,22 +108,33 @@ def login():
 app.route('/signup',methods=['POST'])
 def signup ():
     try:
+        print("data received")
         data=request.get_json()
+        print("data stripped")
         email=data.get('email')
+        print ("email check")
         password=data.get('password')
+        print("passwaord check")
         salt=generate_salt()
+        print("salt done")
         passkey=hash_password(password,salt)
+        print("hashed password ready")
         confirmation="SELECT * FROM project WHERE email = %s LIMIT 1"
         cursor.execute(confirmation,email)
+        print("query exceuted")
         result=cursor.fetchone()
+        print("result here")
         if result is None:
+            print("result is none")
             query="INSERT INTO Project (email,passkey,salt) VALUES (%s, %s, %s )"
             cursor.execute(query,(email,passkey,salt))
             conn.commit()
+            print("new email inserted into db success")
             cursor.close()
             conn.close()
             return render_template('login.html')
         else:
+            print("email already exists")
             response=jsonify({"Data":"The account corresponding to the email address you entered already exists"})
             return response
     except  Exception as e:

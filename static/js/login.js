@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
   })
   .then(response => {
   if (!response.ok) {
+    alert("Trouble loggin in.Kindly check your email and password and try again")
+  }
+  else{
     alert("Your request was submitted succesfully")
   }
   console.log('Utility data successfully saved.');
