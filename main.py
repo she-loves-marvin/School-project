@@ -104,8 +104,11 @@ def login():
 #signup page for new users
 app.route('/signup',methods=['GET'])
 def login():
-    print("request received rendering sign up page")
-    return render_template('signup.html')
+    try:
+        print("request received rendering sign up page")
+        return render_template('signup.html')
+    except Exception as e:
+        print(f"A n error occured : {e}")
 app.route('/signup',methods=['POST'])
 def signup ():
     try:
