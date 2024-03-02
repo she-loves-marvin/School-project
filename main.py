@@ -76,6 +76,7 @@ def login():
         print(f"email check {email}")
         password=data.get('Password')
         print(f"password check {password}")
+       
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
         print("query initiated")
@@ -85,8 +86,10 @@ def login():
             hashpass=feedback[1]
             print("hashpass check")
             salt=feedback[2]
-            print("salt here")
-            passkey=hash_password(password,salt)
+            print(f"salt here {salt}")
+            salt_str = bytes(salt).decode('utf-8')
+            print(f"decoded to string {salt_str}")
+            passkey=hash_password(password,salt_str)
             print("pass regenartion success")
             if hashpass==passkey:
                print("log in succesfull")
