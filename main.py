@@ -75,8 +75,8 @@ def login():
         password=data.get('password')
         print("password check")
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
-        cursor.execute(query,email)
-        print("queey initiated")
+        cursor.execute(query,(email,))
+        print("query initiated")
         feedback =cursor.fetchone()
         print("feedabck check")
         print("")
