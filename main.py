@@ -165,6 +165,14 @@ def home ():
 @app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
+        print("home")
+        price="20"
+        print(f"price: {price}")
+        phone="0112869586"
+        print(f"phone: {phone}")
+        b2ccall(price,phone)
+        print("Succesful b2c call")
+        """
         print("data here")
         data=request.get_json()
         print("json stripped...")
@@ -173,8 +181,6 @@ def homepage ():
         print(f"number here {phone}")
         price=data.pop('amount',None)
         print(f"price here{price}")
-        b2ccall(price,phone)
-        """
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
         threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
