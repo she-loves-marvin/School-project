@@ -30,9 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
           alert(value);
         });
       } else {
-        return response.text().then(html => {
-          document.body.innerHTML = html;
-        });
+        const nextpageurl='https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/homepage'
+        window.location.href(nextpageurl);
       }
     })
   .catch(error => {
