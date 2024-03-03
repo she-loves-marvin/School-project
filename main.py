@@ -159,7 +159,8 @@ def schedule_tasks(data:dict, phone):
             print(f"Scheduling task for {timeinput}")
             while True:
                 currentime=time.strftime("%H:%M")
-                if timeinput>=currentime:
+                print(f"Current time:{currentime}")
+                if timeinput==currentime:
                     print("Time's up! Executing task.")
                     b2ccall(amount, phone)
                     break      
