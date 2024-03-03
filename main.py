@@ -9,7 +9,7 @@ import os
 import time
 import hashlib
 import secrets
-import pytz
+from tzlocal import get_localzone
 
 
 
@@ -23,7 +23,7 @@ connection_string = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(connection_string)
 cursor= conn.cursor()
 print("connection secured...")
-myzone=pytz.timezone('Africa/Nairobi')
+myzone=get_localzone()
 
 
 def generate_salt():
