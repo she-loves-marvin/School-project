@@ -155,9 +155,13 @@ def signup ():
 def schedule_tasks(data:dict, phone):
     print(f"data:{data}")
     for timeinput, amount in data.items():
+        print("getting to scheduler")
         schedule.every().day.at(timeinput).do(b2ccall, amount, phone)
+        print("schedule loaded")
     while True:
+        print("listening")
         schedule.run_pending()
+        print("time's ups ")
         time.sleep(1)
 @app.route('/homepage',methods=['GET'])
 def home ():
