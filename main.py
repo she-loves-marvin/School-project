@@ -3,7 +3,7 @@ from multiprocessing import Process
 from intasend import APIService
 import requests
 import psycopg2
-import schedule
+from datetime import datetime
 import json
 import os
 import time
@@ -153,16 +153,21 @@ def signup ():
 
 #homepage logic behind budgeting
 def schedule_tasks(data:dict, phone):
-    print(f"data:{data}")
-    for timeinput, amount in data.items():
-        print("getting to scheduler")
-        schedule.every().day.at(timeinput).do(b2ccall, amount, phone)
-        print("schedule loaded")
-    while True:
-        print("listening")
-        schedule.run_pending()
-        print("time's ups ")
-        time.sleep(1)
+    try:
+        print(f"data:{data}")
+        for timeinput, amount in data.items():
+            print(f"Scheduling task for {timeinput}")
+            while True:
+                currentime=time.strftime("%H:%M")
+                if currentime<=timeinput:
+                    print("Time's up! Executing task.")
+                    b2ccall(amount, phone)
+                    break      
+                else:
+                    print(f"Waiting for {timeinput} to execute task...")
+                    time.sleep(1)   
+    except Exception as e:
+        print(f"An error occured: {e}")       
 @app.route('/homepage',methods=['GET'])
 def home ():
     return render_template('home.html')
