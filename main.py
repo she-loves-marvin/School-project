@@ -200,9 +200,9 @@ def homepage ():
 def b2ccall(amount,phone):
     try:
         print("api call received ")
-        token = "intasend_token"
+        token = os.environ.get("intasend_token")
         print(f"private token {token}")
-        publishable_key = "intasend_key"
+        publishable_key = os.environ.get("intasend_key")
         print(f"public token {publishable_key}")
         service = APIService(token=token, publishable_key=publishable_key, test=False)
         print("service")
