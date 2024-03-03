@@ -39,7 +39,7 @@ function processData() {
         window.location.href = data.redirect_url;
       }
       else{
-        alert(data.message);
+        alert(data.Data);
       }
     })
     .catch(error => {
