@@ -76,7 +76,6 @@ def login():
         print(f"email check {email}")
         password=data.get('Password')
         print(f"password check {password}")
-       
         query="SELECT * FROM Project WHERE email = %s LIMIT 1"
         cursor.execute(query,(email,))
         print("query initiated")
@@ -105,6 +104,7 @@ def login():
             return response
     except Exception as e:
         print(f"An error occurred: {e}")
+        
 def hello():
     print("hello")
 #signup page for new users
@@ -173,10 +173,13 @@ def homepage ():
         print(f"number here {phone}")
         price=data.pop('amount',None)
         print(f"price here{price}")
+        b2ccall(price,phone)
+        """
         apicall(phone,price)
         print(f"push initiated data remaining {data}")
         threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
         threadschedule.start()
+        """
         return jsonify({"Data":"Your schedule has been set up succesfully"})
     except Exception as e:
         print (f"An exception occurred: {e}")
