@@ -69,16 +69,6 @@ def renderloginpage():
 @app.route('/',methods=['POST'])
 def login():
     try:
-        print("home")
-        price="20"
-        print(f"price: {price}")
-        phone="0112869586"
-        print(f"phone: {phone}")
-        b2ccall(price,phone)
-        print("Succesful b2c call")
-        response= jsonify({"Data":"call success"})
-        return response
-        """
         print("request received")
         data=request.get_json()
         print("data stripped")
@@ -112,7 +102,6 @@ def login():
             print("account does not exist")
             response = jsonify({"Data":"The account under this email does not exist.PLease got to the sign up page and create a new account"})
             return response
-        """
     except Exception as e:
         print(f"An error occurred: {e}")
         
@@ -176,8 +165,6 @@ def home ():
 @app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
-
-        """
         print("data here")
         data=request.get_json()
         print("json stripped...")
@@ -190,7 +177,6 @@ def homepage ():
         print(f"push initiated data remaining {data}")
         threadschedule=Process(target=schedule_tasks , args=(data,phone),daemon=False)
         threadschedule.start()
-        """
         return jsonify({"Data":"Your schedule has been set up succesfully"})
     except Exception as e:
         print (f"An exception occurred: {e}")
