@@ -28,14 +28,18 @@ function processData() {
       body:JSON.stringify(data)
     })
     .then(response => {
-      if (response.headers.get('content-type').includes('application/json')) {
-        return response.json().then(data => {
-          const value = data.Data; 
-          alert(value);
-        });
+      if (response.ok) {
+        return response.json()
       } else {
-        const nextpageurl='https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/'
-        window.location.href(nextpageurl);
+        throw new Error('Network response was not ok');
+      }
+    })
+    .then(data=>{
+      if (data.status==="success"){
+        window.location.href = data.redirect_url;
+      }
+      else{
+        alert(data.message);
       }
     })
     .catch(error => {

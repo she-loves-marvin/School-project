@@ -93,10 +93,10 @@ def login():
             print(f"pass regenartion success {passkey}")
             if hashstr==passkey:
                print("log in succesfull")
-               return render_template('home.html')
+               return jsonify({"status": "success", "redirect_url": "https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/homepage"})
             else:
                 print("false password")
-                response= jsonify({"Data":"The password you entered is not correct.Please try again!!!"})
+                response= jsonify({"status": "error","Data":"The password you entered is not correct.Please try again!!!"})
                 return response
         else:
             print("account does not exist")
@@ -142,10 +142,10 @@ def signup ():
             print("new email inserted into db success")
             cursor.close()
             conn.close()
-            return render_template('login.html')
+            return jsonify({"status": "success", "redirect_url": "https://rocky-wildwood-58249-5658bfaadb54.herokuapp.com/"})
         else:
             print("email already exists")
-            response=jsonify({"Data":"The account corresponding to the email address you entered already exists"})
+            response=jsonify({"status": "error","Data":"The account corresponding to the email address you entered already exists"})
             return response
     except  Exception as e:
         print(f"An exception occurred: {e}")
