@@ -9,7 +9,7 @@ import os
 import time
 import hashlib
 import secrets
-
+import pytz
 
 
 
@@ -23,7 +23,7 @@ connection_string = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(connection_string)
 cursor= conn.cursor()
 print("connection secured...")
-
+myzone=pytz.timezone('Africa/Nairobi')
 
 
 def generate_salt():
@@ -158,9 +158,9 @@ def schedule_tasks(data:dict, phone):
         for timeinput, amount in data.items():
             print(f"Scheduling task for {timeinput}")
             while True:
-                currentime=time.strftime("%H:%M")
+                currentime=datetime.now(myzone).strftime("%H:%M")
                 print(f"Current time:{currentime}")
-                if timeinput==currentime:
+                if timeinput<=currentime:
                     print("Time's up! Executing task.")
                     b2ccall(amount, phone)
                     break      
