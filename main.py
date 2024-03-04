@@ -23,6 +23,9 @@ connection_string = os.environ.get("DATABASE_URL")
 conn = psycopg2.connect(connection_string)
 cursor= conn.cursor()
 print("connection secured...")
+
+
+
 myzone=timezone('Africa/Nairobi')
 
 
