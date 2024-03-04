@@ -25,14 +25,14 @@ cursor= conn.cursor()
 print("connection secured...")
 
 
-
+#timezone set up
 myzone=timezone('Africa/Nairobi')
 
-
+#salt generator
 def generate_salt():
     return secrets.token_hex(16)
 
-
+#hashing password function
 def hash_password(password,salt):
     print("Hash generator")
     salted_password = password + salt
@@ -62,6 +62,8 @@ def apicall(number,amount):
           print(response.json())
   except Exception as e:
       app.logger.error(f'An error occurred: {e}')
+
+
 #root page directed to the user to authenticate themselves
 @app.route('/',methods=['GET'])
 def renderloginpage():
@@ -69,6 +71,9 @@ def renderloginpage():
             return render_template('login.html')
         except Exception as e:
             print(f"an error occurred :{e}")
+
+
+#backend to handle post requests from root page
 @app.route('/',methods=['POST'])
 def login():
     try:
@@ -108,8 +113,10 @@ def login():
     except Exception as e:
         print(f"An error occurred: {e}")
         
-def hello():
-    print("hello")
+
+
+
+
 #signup page for new users
 @app.route('/signup',methods=['GET'])
 def rendersignuppage():
@@ -118,6 +125,9 @@ def rendersignuppage():
         return render_template('signup.html')
     except Exception as e:
         print(f"A n error occured : {e}")
+
+
+#backend logic to integrate 
 @app.route('/signup',methods=['POST'])
 def signup ():
     try:
@@ -171,10 +181,15 @@ def schedule_tasks(data:dict, phone):
                     print(f"Waiting for {timeinput} to execute task...")
                     time.sleep(1)   
     except Exception as e:
-        print(f"An error occured: {e}")       
+        print(f"An error occured: {e}")   
+
+#homepage rendering    
 @app.route('/homepage',methods=['GET'])
 def home ():
     return render_template('home.html')
+
+
+#back end logic to handle post request to homepage
 @app.route('/homepage',methods=['POST'])
 def homepage ():
     try:
@@ -195,7 +210,10 @@ def homepage ():
         print (f"An exception occurred: {e}")
         return jsonify({"Data":"An error occured"})
 
-#api call to send the money to the customer at the schedule
+
+
+
+#api call to send the money to the customer at the scheduled time 
 def b2ccall(amount,phone):
     try:
         print("api call received ")
@@ -214,5 +232,8 @@ def b2ccall(amount,phone):
         return ("okay")
     except Exception as e:
         print(f"An error occured: {e}")
+
+
+
 if __name__== "__main__":
     app.run(debug=True,port=80)
