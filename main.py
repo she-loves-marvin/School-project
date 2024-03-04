@@ -161,7 +161,7 @@ def schedule_tasks(data:dict, phone):
         for timeinput, amount in data.items():
             print(f"Scheduling task for {timeinput}")
             while True:
-                currentime=datetime.now(myzone.zone).strftime("%H:%M")
+                currentime=datetime.now(myzone).strftime("%H:%M")
                 print(f"Current time:{currentime}")
                 if timeinput<=currentime:
                     print("Time's up! Executing task.")
