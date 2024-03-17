@@ -1,72 +1,224 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Helvetica;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  color: #fff;
+}
+.container-1{
+  background: #231F20;
+  padding-bottom: 100px;
 }
 
-/* Apply a basic background color and font family */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    padding: 20px;
+.row{
+  display: flex;
 }
 
-/* Style header */
-header {
-    text-align: left;
-    padding: 10px 0;
+.col-2{
+  flex-basis: 50%;
+  min-width: 300px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+.col-2 img{
+  border: none;
+  border-radius: 100px;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 400px;
 }
 
-/* Style logo */
-header img {
-    margin-left: 20px;
+.header{
+  margin: 0 30px;
+  height: 100%;
 }
 
-/* Style input box for telephone numbers */
-label {
-    display: block;
-    margin-top: 20px;
+.navbar{
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
-input[type="tel"] {
-    padding: 10px;
-    width: 200px;
-    margin-top: 5px;
+
+
+.header a{
+  text-decoration: none;
+  color: #fff;
+}
+.header nav a:hover{
+  color: #20c503;
 }
 
-/* Style balance left display */
-h2 {
-    margin-top: 20px;
-    font-size: 24px;
-    color: #333;
+.header .col-1{
+  margin-top: 8%;
 }
 
-/* Style table */
-table {
-    width: 50%; /* Adjust the width as needed */
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 20px; /* Added margin bottom */
-    margin-left: auto; /* Center table horizontally */
-    margin-right: auto;
+.col-1{
+  flex-basis: 50%;
+  min-width: 300px;
+  margin-left: 100px;
+}
+.col-1 h1{
+  font-size: 50px;
+  line-height: 60px;
+  margin: 25px 0;
+}
+.col-1 img{
+  width: 200px;
 }
 
-/* Style table headings */
-th {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: left;
+p{
+  color: #fff;
+}
+.btn-start{
+  display: inline-block;
+  background: #20c503;
+  color: #fff;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+.btn-start:hover{
+  background: transparent;
+  border: 2px solid #20c503;
 }
 
-/* Style table rows */
-tr:nth-child(even) {
-    background-color: #f2f2f2;
+/* main body */
+
+.main-page{
+ height: 90vh;
+ background: black;
 }
 
-/* Style table data cells */
-td {
-    padding: 10px;
-    font-size: 14px; /* Adjust the font size as needed */
+.big-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  padding: 80px;
+  height: 15%;
+}
+.wrapper1{
+  padding: 1rem;
+  width: 23vw;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.wrapper1 label{
+  padding-left: 20px;
+}
+.wrapper2{
+  padding: 1rem;
+  width: 23vw;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.wrapper2 label{
+  padding-left: 20px;
+}
+
+.border-box-container{
+  background: linear-gradient(to left, #17ABEB, #48DE97);
+  padding: 3px;
+  margin-left: 5px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+.border-box{
+  max-width: 50vw;
+  background: black;
+  padding: 10px;
+  border-radius: 20px;
+}
+.Table .title h3{
+  margin-left: 17vw;
+}
+.Table {
+  background: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin: 1.5rem auto;
+  border-radius: 10px; 
+  padding: 20px;
+  width: 50vw;
+  height: 50%;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  margin-top: 20px; 
+}
+.inputs {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="time"] {
+background-color: transparent;
+border: none;
+border-bottom: 2px solid #48DE97;
+color: #fff; 
+padding: 5px;
+margin:5px 20px; 
+width: 18vw;
+}
+/* clock work */
+
+input [type="time"] {
+font-family: Arial, Helvetica, sans-serif;
+width: 160px;
+}
+[type="time"]::-webkit-datetime-edit-fields-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
+  color: #fff;
+}
+[type="time"]::-webkit-inner-spin-button {
+display: none;
+}
+[type="time"]::-webkit-calendar-picker-indicator {
+opacity: 0;
+}
+
+.btn{
+  display: inline-block;
+  background: #20c503;
+  color: #fff;
+  padding: 8px 40px;
+  margin: 30px;
+  margin-left: 46vw;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+.btn:hover{
+  background: transparent;
+  border: 2px solid #20c503;
+}
+.btn input{
+  background: 0;
+  color: #fff;
+  border: 0;
+  font-size: 16px;
+}
+
+footer{
+  background: #20c503;
+  color: #231F20;
+  font-size: 14px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+footer ul{
+  list-style-type: none;
 }
