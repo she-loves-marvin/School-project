@@ -1,15 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times,
+     'Times New Roman', serif;
   }
   .container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
   }
+  
   .form-group {
     margin-bottom: 15px;
+    flex: 1;
   }
   label {
     display: block;
@@ -20,14 +23,14 @@ body {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 10px;
   }
   input[type="button"] {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
   }
   input[type="submit"]:hover {

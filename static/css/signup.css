@@ -1,21 +1,18 @@
 form {
-  font-weight: lighter;
+  font-weight: bold;
   font-style: normal;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-}
-label {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: block;
-  margin-bottom: 5px;
+  margin: 0 auto;
+  width: 50%;
+  padding: 20px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
 button {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -23,20 +20,21 @@ button {
 }
 
 button {
-  background-color: #3498db;
-  color: white;
+  background-color:87,204,153;
+  color:black;
   font-size: 16px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color:56,163,165;
 }
 
 h2 {
-  color:blue;
-  text-align:left;
+  color: 34,87,122;
+  text-align: left;
 }
-nav{
-  float:right;
+
+nav {
+  float: right;
 }
