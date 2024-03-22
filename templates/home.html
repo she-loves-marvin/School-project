@@ -1,62 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/home.css">
-  <title>Home Page</title>
-</head>
-<body>
-  <header>
-    <h2>Logo</h2>
-  </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <title>Home Page</title>
+  </head>
+  <body>
 
-  <div>
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder="1234-567-890" required>
-  </div>
+      <div class="container-1">
+        <div class="header">
+            <div class="navbar">
+                <div class="logo">
+                    <h2>CoinClock</h2>
+                </div>
+            </div>
 
-  <div>
-    <label for="cash">Enter amount:</label>
-    <input type="number" name="amount" id="amount">
-  </div>
+            <div class="row">
+                <div class="col-1">
+                    <div class="info">
+                        <h1>Manage Your<br> Money Wisely</h1>
+            
+                        <p>A convenient money management tool to achieve your financial goals</p>
+                    </div>
+            
+                    <div class="btn-start">
+                        <a href="#main">Start Now &#8594</a>
+                    </div>
+            
+                    <p>In Partnership With <br>
+                        <img src="/static/css/images/mpesa.png" alt="mpesa icon"></p>  
+                </div>
 
-  <div class="Table">
-    <p>Enter Budget plan</p>
-    <table id="budgetTable">
-      <tr>
-        <th>Utility</th>
-        <th>Amount</th>
-        <th>Time</th>
-      </tr>
-      <tr>
-        <td><input type="text" name="utility_name[]" class="utility-name" placeholder="Utility 1"></td>
-        <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
-        <td><input type="time" name="utility_time[]" class="utility-time"></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="utility_name[]" class="utility-name" placeholder="Utility 2"></td>
-        <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
-        <td><input type="time" name="utility_time[]" class="utility-time"></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="utility_name[]" class="utility-name" placeholder="Utility 3"></td>
-        <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
-        <td><input type="time" name="utility_time[]" class="utility-time"></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="utility_name[]" class="utility-name" placeholder="Utility 4"></td>
-        <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
-        <td><input type="time" name="utility_time[]" class="utility-time"></td>
-      </tr>
-      <tr>
-        <td><input type="text" name="utility_name[]" class="utility-name" placeholder="Utility 5"></td>
-        <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
-        <td><input type="time" name="utility_time[]" class="utility-time"></td>
-      </tr>
-    </table>
-  </div> 
-  <input type="button" value="submit" id="submitbutton" >
-  <script src="/static/js/home.js"></script>
-</body>
+                <div class="col-2">
+                    <img src="/static/css/images/dollar.png" alt="dollar_icon">
+                </div>
+            </div>
+            
+            
+            
+        </div>
+    </div>
+        
+
+
+    <div class="main-page" id="main">
+        
+        <div class="big-wrapper">
+            <div class="border-box-container">
+                <div class="border-box">
+                    <div class="wrapper1">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" placeholder=" 0700-000-000/01" required>
+                    </div>
+                </div>
+            </div>
+                
+            
+            <div class="border-box-container">
+                <div class="border-box">
+                    <div class="wrapper2">
+                        <label for="cash">Enter amount:</label>
+                        <input type="number" name="amount" id="amount">
+                    </div>
+                </div>
+            </div> 
+        </div>
+        
+
+        <div class="Table">
+            <div class="border-box-container">
+                <div class="border-box">
+                    <div class="title">
+                        <h3>Enter Budget Plan</h3>
+                    </div>
+        
+                    <div class="inputs">
+                        <table id="budgetTable">
+                            <tr>
+                            <th>Amount</th>
+                            <th>Time</th>
+                            </tr>
+                            <tr>
+                            <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
+                            <td><input type="time" name="utility_time[]" class="utility-time"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
+                            <td><input type="time" name="utility_time[]" class="utility-time"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
+                            <td><input type="time" name="utility_time[]" class="utility-time"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
+                            <td><input type="time" name="utility_time[]" class="utility-time"></td>
+                            </tr>
+                            <tr>
+                            <td><input type="text" name="utility_amount[]" class="utility-amount"></td>
+                            <td><input type="time" name="utility_time[]" class="utility-time"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                        
+            </div>
+            
+            
+        </div> 
+        <div class="btn">
+            <input type="button" value="Submit" id="submitbutton" >
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <h4>Useful Links</h4>
+                <li>Contact:  example@gmail.com</li>
+                <li>Twitter:  Twitter/paymio.com</li>
+                <li>Facebook: Facebook/paymio.com</li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/static/js/home.js"></script>
+  </body>
 </html>
